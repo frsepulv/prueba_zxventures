@@ -8,8 +8,4 @@ WORKDIR /code
 COPY requirements.txt /code
 RUN pip3 install -r requirements.txt
 COPY . /code/
-
-RUN [ "python3", "-m", "manage", "makemigrations" ]
-RUN [ "python3", "-m", "manage", "migrate" ]
-
-ENTRYPOINT [ "python3", "-m", "manage", "runserver" ]
+COPY wait-for-it.sh /code/wait-for-it.sh

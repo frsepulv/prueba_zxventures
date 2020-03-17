@@ -3,16 +3,20 @@ version: '3'
 services:
   db:
     image: postgis/postgis
+    container_name: postgis
     environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
     expose:
-        "5432"
+      - "5432"
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+    image: prueba:postgis
+    container_name: prueba
+    command: [
+      "./wait-for-it.sh", "db:5432", "--",
+      "bash" , "-c", "python3 -m manage makemigrations && python3 -m manage migrate && python3 -m manage runserver 0.0.0.0:8000"
+    ]
     ports:
       - "8000:8000"
     depends_on:
