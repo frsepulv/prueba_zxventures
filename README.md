@@ -2,7 +2,10 @@
 Resolución de *challenge* ZX Ventures (Back end).
 
 ## Dependencias
-Para la construcción del proyecto se requiere tener instalado Docker.
+Para la construcción del proyecto se requiere tener instalado:
+
+    docker
+    docker-compose
 
 ## Construcción y ejecución
 La aplicación se despliega en Docker:
