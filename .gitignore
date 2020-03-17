@@ -2,3 +2,4 @@ __pycache__
 .vscode
 *.lock
 db.spatialite
+[0-9]*.py

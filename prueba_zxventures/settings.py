@@ -25,8 +25,11 @@ SECRET_KEY = '&h$j$t8)#!3mb4g2!!xhp$jh8@x@!eef+@1$8x0rrc@v5m-tr-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.1.90'
+]
 
+APPEND_SLASH = False
 
 # Application definition
 
@@ -66,8 +69,14 @@ WSGI_APPLICATION = 'prueba_zxventures.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-        'NAME': os.path.join(BASE_DIR, 'db.spatialite'),
+        #'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        #'NAME': os.path.join(BASE_DIR, 'db.spatialite'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': '5432'
     }
 }
 
